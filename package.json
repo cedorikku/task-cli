@@ -1,0 +1,18 @@
+{
+  "name": "task-cli",
+  "version": "1.0.0",
+  "description": "Basic task tracker in the cli",
+  "main": "index.js",
+  "dependencies": {
+    "prettier": "^3.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "bin": {
+    "task-cli": "index.js"
+  },
+  "license": "ISC",
+  "type": "module"
+}
