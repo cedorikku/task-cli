@@ -20,6 +20,11 @@ switch (args[ACTION_POS]) {
         break;
     }
     case ACTIONS.UPDATE: {
+        if (args.length > 5) {
+            console.log(`usage: ${ACTIONS.UPDATE} <id> <"task_name">`);
+            break;
+        }
+        tasksHandler.updateTask(args[ACTION_POS + 1], args[ACTION_POS + 2]);
         break;
     }
     case ACTIONS.DELETE: {
