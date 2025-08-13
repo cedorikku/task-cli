@@ -28,6 +28,11 @@ switch (args[ACTION_POS]) {
         break;
     }
     case ACTIONS.DELETE: {
+        if (args.length > 4) {
+            console.log(`usage: ${ACTIONS.DELETE} <id>`);
+            break;
+        }
+        tasksHandler.deleteTask(args[ACTION_POS + 1]);
         break;
     }
     case ACTIONS.LIST: {
