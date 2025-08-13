@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Basic task tracker in the cli",
   "main": "index.js",
-  "dependencies": {
+  "devDependencies": {
     "prettier": "^3.6.2"
   },
-  "devDependencies": {},
   "scripts": {
     "format": "prettier --write ."
   },
