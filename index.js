@@ -13,7 +13,7 @@ const ACTIONS = {
 switch (args[ACTION_POS]) {
     case ACTIONS.ADD: {
         if (args.length > 4) {
-            console.log(`usage: ${ACTIONS.ADD} <"task_name">`);
+            console.log(`usage: ${ACTIONS.ADD} [DESCRIPTION]`);
             break;
         }
         tasksHandler.addTask(args[ACTION_POS + 1]);
@@ -21,7 +21,7 @@ switch (args[ACTION_POS]) {
     }
     case ACTIONS.UPDATE: {
         if (args.length > 5) {
-            console.log(`usage: ${ACTIONS.UPDATE} <id> <"task_name">`);
+            console.log(`usage: ${ACTIONS.UPDATE} [ID] [DESCRIPTION]`);
             break;
         }
         tasksHandler.updateTask(args[ACTION_POS + 1], args[ACTION_POS + 2]);
@@ -29,7 +29,7 @@ switch (args[ACTION_POS]) {
     }
     case ACTIONS.DELETE: {
         if (args.length > 4) {
-            console.log(`usage: ${ACTIONS.DELETE} <id>`);
+            console.log(`usage: ${ACTIONS.DELETE} [ID]`);
             break;
         }
         tasksHandler.deleteTask(args[ACTION_POS + 1]);
@@ -40,9 +40,9 @@ switch (args[ACTION_POS]) {
         break;
     }
     default: {
-        console.log('usage: ');
+        console.log('usage: task-cli [ACTION]\n\nBelow are the available actions:');
         Object.values(ACTIONS).forEach((a) => {
-            console.log(`    ${a}`);
+            console.log(`- ${a}`);
         });
     }
 }
