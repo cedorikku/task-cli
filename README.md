@@ -36,6 +36,9 @@ npm uninstall
 
 ### Usage
 
+> [!NOTE]
+> This project creates a 'tasks.json' file in the your home directory. If it's windows it should be placed in your `%userprofile%` directory, if it's linux or macos it should be placed in your `$HOME` directory.
+
 If installed, run with
 
 ```sh
@@ -49,7 +52,9 @@ or if it isn't installed, run with node
 node index.js [ACTION]
 
 ```
+
 #### Example usage:
+
 ```sh
 # Adding a new task
 task-cli add "Buy groceries"
