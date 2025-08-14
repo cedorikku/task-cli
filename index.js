@@ -36,7 +36,11 @@ switch (args[ACTION_POS]) {
         break;
     }
     case ACTIONS.LIST: {
-        // get all
+        if (args.length > 4) {
+            console.log(`usage: ${ACTIONS.LIST} [*STATUS]`);
+            break;
+        }
+        tasksHandler.listTasks(args[ACTION_POS + 1]);
         break;
     }
     default: {
