@@ -8,6 +8,8 @@ const ACTIONS = {
     UPDATE: 'update',
     DELETE: 'delete',
     LIST: 'list',
+    MARK_IN_PROGRESS: 'mark-in-progress',
+    MARK_DONE: 'mark-done',
 };
 
 switch (args[ACTION_POS]) {
@@ -43,8 +45,26 @@ switch (args[ACTION_POS]) {
         tasksHandler.listTasks(args[ACTION_POS + 1]);
         break;
     }
+    case ACTIONS.MARK_IN_PROGRESS:
+    case ACTIONS.MARK_DONE: {
+        if (args.length > 4) {
+            console.log(`usage: ${args[ACTION_POS]} [ID]`);
+            break;
+        }
+
+        const id = args[ACTION_POS + 1];
+        const statusMap = {
+            'mark-in-progress': 'in-progress',
+            'mark-done': 'done',
+        };
+
+        tasksHandler.markTask(id, statusMap[args[ACTION_POS]]);
+        break;
+    }
     default: {
-        console.log('usage: task-cli [ACTION]\n\nBelow are the available actions:');
+        console.log(
+            'usage: task-cli [ACTION]\n\nBelow are the available actions:',
+        );
         Object.values(ACTIONS).forEach((a) => {
             console.log(`- ${a}`);
         });
