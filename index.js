@@ -12,7 +12,9 @@ const ACTIONS = {
     MARK_DONE: 'mark-done',
 };
 
-switch (args[ACTION_POS]) {
+const action = args[ACTION_POS];
+
+switch (action) {
     case ACTIONS.ADD: {
         if (args.length > 4) {
             console.log(`usage: ${ACTIONS.ADD} [DESCRIPTION]`);
@@ -48,7 +50,7 @@ switch (args[ACTION_POS]) {
     case ACTIONS.MARK_IN_PROGRESS:
     case ACTIONS.MARK_DONE: {
         if (args.length > 4) {
-            console.log(`usage: ${args[ACTION_POS]} [ID]`);
+            console.log(`usage: ${action} [ID]`);
             break;
         }
 
@@ -63,7 +65,8 @@ switch (args[ACTION_POS]) {
     }
     default: {
         console.log(
-            'usage: task-cli [ACTION]\n\nBelow are the available actions:',
+            'Simple task management in the cli for everyday tasks.\n' +
+                'usage: task-cli [ACTION]\n\nBelow are the available actions:',
         );
         Object.values(ACTIONS).forEach((a) => {
             console.log(`- ${a}`);
